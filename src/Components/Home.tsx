@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <div
       style={{
@@ -8,13 +11,19 @@ const Home = () => {
         height: "50vh",
         backgroundColor: "yellow",
         margin: "5%",
-        textAlign: 'center',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
+        textAlign: "center",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
       }}
     >
-      Home Component
+      <div>Home Component</div>
+      <div>
+        <button className="btn" onClick={() => navigate("/usersList")}>
+          Go to Users List
+        </button>
+      </div>
     </div>
   );
 };

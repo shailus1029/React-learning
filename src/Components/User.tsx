@@ -1,6 +1,12 @@
 import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
 
 const User = () => {
+  const navigate = useNavigate();
+
+  const productSlug = "ledTv"
+
   return (
     <div
       style={{
@@ -15,6 +21,9 @@ const User = () => {
       }}
     >
       Users Component
+      <button className="btn" onClick={() => navigate(`/products/${productSlug}`)}>
+          Navigate to product details 
+        </button>
     </div>
   );
 };

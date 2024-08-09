@@ -7,10 +7,15 @@ import NavBar from "./Components/Navbar.tsx";
 import NoMatch from "./Components/NoMatch.tsx";
 import "./App.css";
 
+/* Importing MovieProvider */
+import MovieProvider from "./context/MovieProvider.tsx";
+
 /* Lazy loading routing */
-const User = lazy(() => import('./Components/User.tsx'))
+const Movie = lazy(() => import("./Components/Movies.tsx"));
+const User = lazy(() => import("./Components/User.tsx"));
 const Home = lazy(() => import("./Components/Home.tsx"));
 const ProductDetails = lazy(() => import("./Components/ProductDetails.tsx"));
+
 
 const App = () => {
   return (
@@ -19,23 +24,27 @@ const App = () => {
       <div className="main">
         <div className="left">Left Section</div>
         <div className="right">
-          <Suspense fallback={<div className="container">Loading...</div>}>
-            <Routes>
-              {/* Default Route */}
-              <Route path="/" element={<Dashboard />} />
+          <MovieProvider>
+            <Suspense fallback={<div className="container">Loading...</div>}>
+              <Routes>
+                {/* Default Route */}
+                <Route path="/" element={<Dashboard />} />
 
-              {/* Static Route */}
-              <Route path="/home" element={<Home />} />
-              <Route path="/usersList" element={<UserList />} />
-              <Route path="/userDetails" element={<User />} />
+                {/* Static Route */}
+                <Route path="/home" element={<Home />} />
+                <Route path="/usersList" element={<UserList />} />
+                <Route path="/userDetails" element={<User />} />
 
-              {/* Dynamic Route */}
-              <Route path="/products/:slug" element={<ProductDetails />} />
+                {/* Dynamic Route */}
+                <Route path="/products/:slug" element={<ProductDetails />} />
 
-              {/* Not Found Route */}
-              <Route path="*" element={<NoMatch />} />
-            </Routes>
-          </Suspense>
+                <Route path="/movies" element={<Movie />} />
+
+                {/* Not Found Route */}
+                <Route path="*" element={<NoMatch />} />
+              </Routes>
+            </Suspense>
+          </MovieProvider>
         </div>
       </div>
     </>

@@ -18,6 +18,14 @@ const MovieProvider = (props) => {
   }
   };
 
+
+  /*
+  fetch(url, {
+    method: post,
+    Headers: headers,
+    body: JSON.stringfy({ name: 'shailendr' })
+  })
+  */
   const contextValue = {
       movies,
       getMovies,

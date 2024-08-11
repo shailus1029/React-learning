@@ -1,4 +1,6 @@
 import { combineReducers } from "redux";
+
+/* Importing counter reducer */
 import counterReducer from "./countReducer"
 
 // Combine Reducers

@@ -1,4 +1,5 @@
 import React from "react";
+import ParentComponent from "./ParentComponent.tsx";
 
 const Dashboard = () => {
   return (
@@ -8,13 +9,14 @@ const Dashboard = () => {
         height: "50vh",
         backgroundColor: "antiquewhite",
         margin: "5%",
-        textAlign: 'center',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
+        textAlign: "center",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: 'column'
       }}
     >
-      Dashboard Component
+      <ParentComponent />
     </div>
   );
 };

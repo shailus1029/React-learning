@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { decrement, increment } from "../actions/counterAction";
 
-const Counter = () => {
-  const counter = useSelector((state) => state.counterReducer);
-  const dispatch = useDispatch();
 
+/* Importing reducer */
+import counterReducer from "../reducers/countReducer";
+
+const Counter = () => {
+
+  /* Method 1 */
+  // const counter = useSelector((state) => state.counterReducer);
+  // const dispatch = useDispatch();
+
+  /* Method 2 */
+  const [counter, dispatch] = useReducer(counterReducer, { count: 0 })
+  
   return (
     <div
       style={{

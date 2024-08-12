@@ -1,0 +1,22 @@
+# In steps involve in creating state manamgement system for application.
+
+1. Create Initial states. -->> All state should at central state.
+2. Create functions/snapshots to read store data.
+3. Create functions/subcribers to update store.
+4. function to trigger notification after sucessfull updation of store.
+
+
+
+  subscribe(subscriber: Subscriber<State>) {
+    this.subscribers.add(subscriber);
+
+    return () => this.subscribers.delete(subscriber)
+  }
+
+
+  subscribe(fn: Listener) {
+      subscribers.push(fn);
+      return () => {
+        subscribers = subscribers.filter((listener) => listener !== fn);
+      };
+    },

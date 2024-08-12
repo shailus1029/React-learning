@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 
-const Router = ({ path, component }) => {
+const Route = ({ path, component }) => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
   useEffect(() => {
     const onLocationChange = () => {
       setCurrentPath(window.location.pathname);
     };
+
     window.addEventListener("navigate", onLocationChange);
     return () => window.removeEventListener("navigate", onLocationChange);
   }, []);
@@ -14,4 +15,4 @@ const Router = ({ path, component }) => {
   return currentPath === path ? component() : null;
 };
 
-export default Router;
+export default Route;

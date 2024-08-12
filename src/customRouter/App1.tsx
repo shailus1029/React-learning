@@ -7,6 +7,7 @@ import Contact from "./Contact.tsx";
 import Navbar from "./Navbar.tsx";
 
 const App = () => {
+
   return (
     <>
       <Navbar />

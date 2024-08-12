@@ -1,0 +1,7 @@
+
+1. Route -> It is actually a basic component which accepts path and children as parameters to navigate to that URL and render the given children elements.
+
+2. Link -> It also accepts path, onClick and children to render. If given path is valid pushes the user to the desired location. The main way to allow users to navigate around your application.
+
+3. Router -> It is the parent of all other components in the component tree. In essence everyting related with routing goes into Router. In our case, Router gonna be our Provider which utilizes ContextAPI to pass down all the shared things across our router.
+
